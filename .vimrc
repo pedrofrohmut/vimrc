@@ -9,7 +9,6 @@ Plug 'tpope/vim-commentary'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'morhetz/gruvbox'
-" Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
 call plug#end()  " Plug END
 
@@ -36,11 +35,18 @@ set mouse=a
 " MY MAPS
 inoremap <C-L> <Del>
 inoremap <BS> <C-H>
+inoremap <C-Space> <Esc>
+nnoremap <C-Space> <Esc>
+
+
+
+" GVIM
+au GUIEnter * simalt ~x
 
 
 
 " EMMET
-autocmd FileType html,css,javascript,javascript.jsx,jsx EmmetInstall
+autocmd FileType html,css,javascript,javascript.jsx,jsx,cshtml EmmetInstall
 let g:user_emmet_leader_key = ','
 let g:user_emmet_settings = {
 \  'javascript' : {
@@ -71,3 +77,10 @@ nnoremap <C-B> :NERDTreeToggle<CR>
 
 " Compile & Run
 autocmd FileType java nnoremap <buffer> <F9> :exec '!javac' shellescape(expand('%'), 1) '&& java' shellescape(expand('%:r'), 1)<cr>
+
+
+
+" OmniSharp
+let g:OmniSharp_server_path = 'C:\Users\pedro\.vim\plugged\omnisharp-roslyn' 
+let g:OmniSharp_server_stdio = 1
+
