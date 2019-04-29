@@ -13,36 +13,51 @@ Plug 'tpope/vim-surround'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
-syntax on                         " enable syntax highlighting
-set backspace=2                   " Desbuga o backspace
 
-filetype indent on                " load indent settings based on file type
-set shiftwidth=2                  " number of spaces to use for indenting
-set softtabstop=2                 " number of spaces to use when inserting a tab
-set tabstop=2                     " show tabs as 2 spaces
-set expandtab                     " convert tabs into spaces
+"" Opções Globais ""
+set showmatch                     " Mostra Matching Pairs
+
+
+"" Opções de Arquivo ""
+set relativenumber                " show relative line number
+set wrap                          " line wrapping
+set linebreak                     " word wrapping at the line end
+set colorcolumn=120               " show vertical line at 120 chars
+
 set autoindent                    " copy indent from previous line
+set shiftwidth=2                  " number of spaces to use for indenting
+set expandtab                     " convert tabs into spaces
+set softtabstop=2                 " number of spaces to use when inserting a tab
+
+syntax on                         " enable syntax highlighting
 
 set ruler                         " show cursor line and column in status
 set showcmd                       " show current command in status line
 
-set number                        " Show Line Number
-set colorcolumn=120               " show vertical line at 120 chars
+set backspace=2                   " Desbuga o backspace
 
-set hidden                        " Allow unsaved buffers to be hidden
+"filetype indent on                " load indent settings based on file type
+"set tabstop=2                     " show tabs as 2 spaces
+"set hidden                        " Allow unsaved buffers to be hidden
 
+
+""" STYLE """
 colorscheme dracula
-
 set guifont=Consolas:h14:cANSI:qDRAFT
 
-"" NERDTree
+"gvim -geometry 100x45+0+0        " gvim -geometry 80x63+8+100
+
+
+""" NERDTree """
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 
-"" Ctrl + P
+
+""" Ctrl + P """
 set runtimepath^=~/.vim/bundle/ctrlp.vim   
 
-"" indentLine
+
+""" indentLine Options """
 " Vim
 "let g:indentLine_color_term = 239
 
