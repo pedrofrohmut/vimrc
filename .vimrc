@@ -9,12 +9,14 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'Yggdroot/indentLine'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'vim-syntastic/syntastic'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
 
-"" Opções Globais ""
+"" Op�ões Globais ""
 set showmatch                     " Mostra Matching Pairs
 
 
@@ -23,11 +25,16 @@ set relativenumber                " show relative line number
 set wrap                          " line wrapping
 set linebreak                     " word wrapping at the line end
 set colorcolumn=120               " show vertical line at 120 chars
+"set cursorline                    " Highlight the line of the cursor
+set hlsearch                      " 
+
 
 set autoindent                    " copy indent from previous line
 set shiftwidth=2                  " number of spaces to use for indenting
 set expandtab                     " convert tabs into spaces
 set softtabstop=2                 " number of spaces to use when inserting a tab
+set smartindent "*                " does the right thing in programs (mostly)
+set smarttab "*                   " does the right thing in programs (mostly)
 
 syntax on                         " enable syntax highlighting
 
@@ -36,16 +43,10 @@ set showcmd                       " show current command in status line
 
 set backspace=2                   " Desbuga o backspace
 
-"filetype indent on                " load indent settings based on file type
-"set tabstop=2                     " show tabs as 2 spaces
-"set hidden                        " Allow unsaved buffers to be hidden
-
 
 """ STYLE """
 colorscheme dracula
 set guifont=Consolas:h14:cANSI:qDRAFT
-
-"gvim -geometry 100x45+0+0        " gvim -geometry 80x63+8+100
 
 
 """ NERDTree """
@@ -55,7 +56,7 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 
 """ Ctrl + P """
 set runtimepath^=~/.vim/bundle/ctrlp.vim   
-
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 """ indentLine Options """
 " Vim
@@ -71,3 +72,6 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 " Background (Vim, GVim)
 "let g:indentLine_bgcolor_term = 202
 "let g:indentLine_bgcolor_gui = '#FF5F00'
+
+""" EMMET """
+let g:user_emmet_leader_key=','
