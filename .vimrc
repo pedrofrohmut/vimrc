@@ -10,10 +10,20 @@ Plug 'Yggdroot/indentLine'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-Plug 'vim-syntastic/syntastic'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
+
+
+""" EMMET """
+let g:user_emmet_leader_key='<Tab>'
+" let g:user_emmet_install_global=0
+" autocmd FileType html,css,javascript.jsx,jsx EmmetInstall
+let g:user_emmet_settings = {
+\  'javascript' : {
+\      'extends' : 'jsx',
+\  },
+\}
 
 
 "" Opç§Ãµes Globais ""
@@ -25,16 +35,14 @@ set relativenumber                " show relative line number
 set wrap                          " line wrapping
 set linebreak                     " word wrapping at the line end
 set colorcolumn=120               " show vertical line at 120 chars
-"set cursorline                    " Highlight the line of the cursor
-set hlsearch                      " 
 
 
 set autoindent                    " copy indent from previous line
 set shiftwidth=2                  " number of spaces to use for indenting
 set expandtab                     " convert tabs into spaces
 set softtabstop=2                 " number of spaces to use when inserting a tab
-set smartindent "*                " does the right thing in programs (mostly)
-set smarttab "*                   " does the right thing in programs (mostly)
+" set smartindent "*                " does the right thing in programs (mostly)
+" set smarttab "*                   " does the right thing in programs (mostly)
 
 syntax on                         " enable syntax highlighting
 
@@ -51,7 +59,7 @@ set guifont=Consolas:h14:cANSI:qDRAFT
 
 """ NERDTree """
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 
 
 """ Ctrl + P """
@@ -66,12 +74,10 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 "let g:indentLine_color_gui = '#A4E57E'
 
 " none X terminal
-"let g:indentLine_color_tty_light = 7 " (default: 4)
-"let g:indentLine_color_dark = 1 " (default: 2)
+"let g:indentLine_color_tty_light = 7 ' (default: 4)
+"let g:indentLine_color_dark = 1 ' (default: 2)
 
 " Background (Vim, GVim)
 "let g:indentLine_bgcolor_term = 202
 "let g:indentLine_bgcolor_gui = '#FF5F00'
 
-""" EMMET """
-let g:user_emmet_leader_key=','
