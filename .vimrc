@@ -4,7 +4,7 @@ call plug#begin('~/.vim/plugged')
 " Declare the list of plugins.
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-Plug 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim', { 'for': ['javascript.jsx', 'html', 'css'] }
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'Yggdroot/indentLine'
 Plug 'scrooloose/nerdtree'
@@ -17,8 +17,8 @@ call plug#end()
 
 """ EMMET """
 let g:user_emmet_leader_key='<Tab>'
-" let g:user_emmet_install_global=0
-" autocmd FileType html,css,javascript.jsx,jsx EmmetInstall
+let g:user_emmet_install_global=0
+autocmd FileType html,css,javascript.jsx EmmetInstall
 let g:user_emmet_settings = {
 \  'javascript' : {
 \      'extends' : 'jsx',
