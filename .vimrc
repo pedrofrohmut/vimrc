@@ -4,8 +4,10 @@ call plug#begin('~/.vim/plugged') " Plug BEGIN
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx', { 'for': ['jax', 'javascript.jsx'] }
 Plug 'mattn/emmet-vim', { 'for': ['javascript.jsx', 'jsx', 'javascript', 'html', 'css'] }
-
-Plug 'morhetz/gruvbox'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'scrooloose/nerdtree'
 
 call plug#end()  " Plug END
 
@@ -27,7 +29,7 @@ set backspace=2                   " backspace works better in vim
 
 
 " EMMET
-let g:user_emmet_leader_key = '<Tab>'
+let g:user_emmet_leader_key = ','
 let g:user_emmet_settings = {
 \  'javascript' : {
 \      'extends' : 'jsx',
@@ -35,14 +37,18 @@ let g:user_emmet_settings = {
 \}
 let g:user_emmet_install_global=0
 autocmd FileType html,css,javascript,javascript.jsx,jsx EmmetInstall
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 
 
 " COLOR THEME 
-colorscheme gruvbox  " Set Gruvbox Theme
-set background=dark  " Dark mode for gruvbox
-let g:gruvbox_bold = '7'
-let g:gruvbox_italic = '1'
-let g:gruvbox_termcolors = '256'
-let g:gruvbox_contrast_dark = 'soft'
+colorscheme dracula  " Set Dracula Theme
+set background=dark  " Dark mode
+set guifont=Consolas:h14:cANSI:qDRAFT
+
+
+
+""" NERDTree """ 
+autocmd StdinReadPre * let s:std_in=1 
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 
