@@ -25,19 +25,20 @@ set shiftwidth=2                  " number of spaces to use for indenting
 set expandtab                     " convert tabs into spaces
 set softtabstop=2                 " number of spaces to use when inserting a tab
 set backspace=2                   " backspace works better in vim
+set mouse=a
 
 
 
 " EMMET
+autocmd FileType html,css,javascript,javascript.jsx,jsx EmmetInstall
 let g:user_emmet_leader_key = ','
 let g:user_emmet_settings = {
 \  'javascript' : {
-\      'extends' : 'jsx',
-\  },
+\      'extends' : 'jsx'
+\  }
 \}
 let g:user_emmet_install_global=0
-autocmd FileType html,css,javascript,javascript.jsx,jsx EmmetInstall
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+let g:jsx_ext_required = 0        " Allow JSX in normal JS files
 
 
 
