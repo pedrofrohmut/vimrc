@@ -28,6 +28,12 @@ set backspace=2                   " backspace works better in vim
 
 
 
+" MY MAPS
+inoremap <C-L> <Del>
+inoremap <BS> <C-H>
+
+
+
 " EMMET
 autocmd FileType html,css,javascript,javascript.jsx,jsx EmmetInstall
 let g:user_emmet_leader_key = ','
@@ -61,8 +67,8 @@ if !has("gui_running")
 
 endif
 
-inoremap <Char-0x07F> <BS>
-nnoremap <Char-0x07F> <BS>
+" inoremap <Char-0x07F> <BS>
+" nnoremap <Char-0x07F> <BS>
 
 
 " COLOR THEME 
@@ -79,10 +85,9 @@ let g:gruvbox_contrast_dark = 'soft'
 " NERDTree  
 autocmd StdinReadPre * let s:std_in=1 
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+nnoremap <C-B> :NERDTreeToggle<CR>
 
 
 
 " TESTS
-inoremap <C-L> <Del>
-inoremap <BS> <C-H>
 
