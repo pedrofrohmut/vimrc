@@ -8,6 +8,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'scrooloose/nerdtree'
 Plug 'morhetz/gruvbox'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
 call plug#end()  " Plug END
 
@@ -67,8 +68,6 @@ if !has("gui_running")
 
 endif
 
-" inoremap <Char-0x07F> <BS>
-" nnoremap <Char-0x07F> <BS>
 
 
 " COLOR THEME 
@@ -86,8 +85,4 @@ let g:gruvbox_contrast_dark = 'soft'
 autocmd StdinReadPre * let s:std_in=1 
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 nnoremap <C-B> :NERDTreeToggle<CR>
-
-
-
-" TESTS
 
