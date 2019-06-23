@@ -1,7 +1,7 @@
 call plug#begin('~/.vim/plugged') " Plug BEGIN
 
 Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx', { 'for': ['jax', 'javascript.jsx'] }
+Plug 'mxw/vim-jsx', { 'for': ['jsx', 'javascript.jsx'] }
 Plug 'mattn/emmet-vim', { 'for': ['javascript.jsx', 'jsx', 'javascript', 'html', 'css'] }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
@@ -61,7 +61,6 @@ let g:jsx_ext_required = 0        " Allow JSX in normal JS files
 
 
 " COLOR THEME 
-" colorscheme slate
 set background=dark  " Dark mode
 colorscheme gruvbox  " Set Gruvbox Theme
 let g:gruvbox_bold = '7'
@@ -72,8 +71,8 @@ let g:gruvbox_contrast_dark = 'soft'
 
 
 " NERDTree  
-" autocmd StdinReadPre * let s:std_in=1 
-" autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+autocmd StdinReadPre * let s:std_in=1 
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 nnoremap <C-B> :NERDTreeToggle<CR>
 
 
