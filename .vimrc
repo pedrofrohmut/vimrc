@@ -1,16 +1,12 @@
-
 call plug#begin('~/.vim/plugged') " Plug BEGIN
 
-" Plug 'pangloss/vim-javascript'
-" Plug 'mxw/vim-jsx', { 'for': ['jax', 'javascript.jsx'] }
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx', { 'for': ['jax', 'javascript.jsx'] }
 Plug 'mattn/emmet-vim', { 'for': ['javascript.jsx', 'jsx', 'javascript', 'html', 'css'] }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-" Plug 'Xuyuanp/nerdtree-git-plugin'
-" Plug 'morhetz/gruvbox'
-"
-Plug 'OmniSharp/omnisharp-vim'
+Plug 'morhetz/gruvbox'
 
 call plug#end()  " Plug END
 
@@ -46,45 +42,32 @@ nnoremap <C-Space> <Esc>
 
 
 
-" Navigation
-" map <C-Left> <C-w>h 
-" map <C-Right> <C-w>l 
-" map <C-Up> <C-w>k 
-" map <C-Down> <C-w>j 
-
-nnoremap <C-Left> <C-w>h 
-nnoremap <C-Right> <C-w>l 
-nnoremap <C-Up> <C-w>k 
-nnoremap <C-Down> <C-w>j 
-
-
 " GVIM
 au GUIEnter * simalt ~x
-" autocmd GUIEnter * set lines=999 columns=999
 
 
 
 " EMMET
-" autocmd FileType html,css,javascript,javascript.jsx,jsx,cshtml EmmetInstall
-" let g:user_emmet_install_global=0
-" let g:user_emmet_leader_key = ','
-" let g:user_emmet_settings = {
-" \  'javascript' : {
-" \      'extends' : 'jsx'
-" \  }
-" \}
-" let g:jsx_ext_required = 0        " Allow JSX in normal JS files
+autocmd FileType html,css,javascript,javascript.jsx,jsx,cshtml EmmetInstall
+let g:user_emmet_install_global=0
+let g:user_emmet_leader_key = ','
+let g:user_emmet_settings = {
+\  'javascript' : {
+\      'extends' : 'jsx'
+\  }
+\}
+let g:jsx_ext_required = 0        " Allow JSX in normal JS files
 
 
 
 " COLOR THEME 
-colorscheme slate
-" set background=dark  " Dark mode
-" colorscheme gruvbox  " Set Gruvbox Theme
-" let g:gruvbox_bold = '7'
-" let g:gruvbox_italic = '1'
-" let g:gruvbox_termcolors = '256'
-" let g:gruvbox_contrast_dark = 'soft'
+" colorscheme slate
+set background=dark  " Dark mode
+colorscheme gruvbox  " Set Gruvbox Theme
+let g:gruvbox_bold = '7'
+let g:gruvbox_italic = '1'
+let g:gruvbox_termcolors = '256'
+let g:gruvbox_contrast_dark = 'soft'
 
 
 
@@ -96,21 +79,11 @@ nnoremap <C-B> :NERDTreeToggle<CR>
 
 
 " Compile & Run
-" autocmd FileType java nnoremap <buffer> <F9> :exec '!javac' shellescape(expand('%'), 1) '&& java' shellescape(expand('%:r'), 1)<cr>
-
-
-
-" OmniSharp
-let g:OmniSharp_server_stdio = 1
-" let g:OmniSharp_server_path = 'C:\OmniSharp\omnisharp.win-x64\OmniSharp.exe'
-let g:OmniSharp_server_path = 'C:\Users\pedro\.omnisharp\omnisharp-roslyn\OmniSharp.exe'
-" let g:OmniSharp_server_path = 'C:\Users\pedro\.vim\plugged\omnisharp-roslyn' 
-let g:OmniSharp_server_type = 'roslyn' 
-let g:OmniSharp_prefer_global_sln = 1  
-let g:OmniSharp_timeout = 10     
+autocmd FileType java nnoremap <buffer> <F9> :exec '!javac' shellescape(expand('%'), 1) '&& java' shellescape(expand('%:r'), 1)<cr>
 
 
 
 " Ruler Color
 hi ColorColumn ctermbg=grey
 hi ColorColumn guibg=grey18
+
