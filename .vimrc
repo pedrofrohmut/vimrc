@@ -4,11 +4,17 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx', { 'for': ['jsx', 'javascript.jsx'] }
 Plug 'mattn/emmet-vim', { 'for': ['javascript.jsx', 'jsx', 'javascript', 'html', 'css'] }
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
+" Plug 'tpope/vim-commentary'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdcommenter'
 Plug 'morhetz/gruvbox'
+Plug 'w0rp/ale'
 
 call plug#end()  " Plug END
+
+
+
+filetype plugin on
 
 
 
@@ -57,6 +63,20 @@ let g:user_emmet_settings = {
 \  }
 \}
 let g:jsx_ext_required = 0        " Allow JSX in normal JS files
+
+
+
+" Ale 
+" files fixed with prettier and then eslint
+let g:ale_fixers = { 
+\  'javascript': ['prettier', 'eslint'],
+\  'css': ['prettier'],
+\}
+let g:ale_linters = { 'javascript': ['eslint'] }
+let g:ale_linters_explicit = 1
+let g:ale_fix_on_save = 1
+" let g:ale_sign_error = '>>'
+" let g:ale_sign_warning = '--'
 
 
 
