@@ -2,6 +2,10 @@ call plug#begin('~/.vim/plugged') " Plug BEGIN
 
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx', { 'for': ['jsx', 'javascript.jsx'] }
+
+Plug 'leafgarland/typescript-vim'
+Plug 'ianks/vim-tsx'
+
 Plug 'mattn/emmet-vim', { 'for': ['javascript.jsx', 'jsx', 'javascript', 'html', 'css'] }
 Plug 'tpope/vim-surround'
 " Plug 'tpope/vim-commentary'
@@ -9,6 +13,9 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'morhetz/gruvbox'
 Plug 'w0rp/ale'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()  " Plug END
 
@@ -54,7 +61,7 @@ au GUIEnter * simalt ~x
 
 
 " EMMET
-autocmd FileType html,css,javascript,javascript.jsx,jsx,cshtml EmmetInstall
+autocmd FileType html,css,javascript,javascript.jsx,jsx,cshtml,ts,tsx EmmetInstall
 let g:user_emmet_install_global=0
 let g:user_emmet_leader_key = ','
 let g:user_emmet_settings = {
@@ -70,6 +77,7 @@ let g:jsx_ext_required = 0        " Allow JSX in normal JS files
 " files fixed with prettier and then eslint
 let g:ale_fixers = { 
 \  'javascript': ['prettier', 'eslint'],
+\  'typescript': ['prettier', 'eslint'],
 \  'css': ['prettier'],
 \}
 let g:ale_linters = { 'javascript': ['eslint'] }
@@ -77,6 +85,12 @@ let g:ale_linters_explicit = 1
 let g:ale_fix_on_save = 1
 " let g:ale_sign_error = '>>'
 " let g:ale_sign_warning = '--'
+set fileformat=unix
+
+
+
+" TypeScript
+let g:typescript_indent_disable = 1
 
 
 
@@ -94,6 +108,16 @@ let g:gruvbox_contrast_dark = 'soft'
 autocmd StdinReadPre * let s:std_in=1 
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 nnoremap <C-B> :NERDTreeToggle<CR>
+
+
+
+" NERDCommenter
+let g:NERDSpaceDelims = 1
+
+
+
+" Airline
+let g:airline_powerline_fonts = 1
 
 
 
