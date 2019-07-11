@@ -6,7 +6,7 @@ Plug 'mxw/vim-jsx', { 'for': ['jsx', 'javascript.jsx'] }
 Plug 'leafgarland/typescript-vim'
 Plug 'ianks/vim-tsx'
 
-Plug 'mattn/emmet-vim', { 'for': ['javascript.jsx', 'jsx', 'javascript', 'html', 'css'] }
+Plug 'mattn/emmet-vim', { 'for': ['javascript.jsx', 'jsx', 'javascript', 'typescript', 'ts', 'tsx', 'html', 'css'] }
 Plug 'tpope/vim-surround'
 " Plug 'tpope/vim-commentary'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -16,6 +16,10 @@ Plug 'w0rp/ale'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'nathanaelkane/vim-indent-guides'
+
 
 call plug#end()  " Plug END
 
@@ -61,7 +65,7 @@ au GUIEnter * simalt ~x
 
 
 " EMMET
-autocmd FileType html,css,javascript,javascript.jsx,jsx,cshtml,ts,tsx EmmetInstall
+autocmd FileType html,css,javascript,javascript.jsx,jsx,cshtml,ts,tsx,typescript EmmetInstall
 let g:user_emmet_install_global=0
 let g:user_emmet_leader_key = ','
 let g:user_emmet_settings = {
@@ -129,4 +133,17 @@ autocmd FileType java nnoremap <buffer> <F9> :exec '!javac' shellescape(expand('
 " Ruler Color
 hi ColorColumn ctermbg=grey
 hi ColorColumn guibg=grey18
+
+
+
+" Tests
+let g:indent_guides_enable_on_vim_startup = 0
+" let g:indent_guides_auto_colors = 0
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+
+
+
+" CtrlP
+let g:ctrlp_custom_ignore = 'node_modules\|git\'
 
