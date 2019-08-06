@@ -39,6 +39,7 @@ call plug#end()  " Plug END
 
 
 filetype plugin on
+set pythonthreedll=python37.dll
 
 
 
@@ -56,8 +57,6 @@ set softtabstop=2
 
 set backspace=2
 set mouse=a
-
-set guifont=Consolas:h14:cANSI:qDRAFT
 
 set encoding=utf-8
 set fileformat=unix
@@ -113,6 +112,7 @@ nnoremap gg ggzz
 
 " GVIM
 au GUIEnter * simalt ~x
+set guifont=Consolas:h12:cANSI:qDRAFT
 
 
 
