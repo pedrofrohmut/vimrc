@@ -40,6 +40,7 @@ call plug#end()  " Plug END
 
 filetype plugin on
 set pythonthreedll=python37.dll
+set pythonthreehome=C:\Users\pedro\AppData\Local\Programs\Python\Python37-32
 
 
 
@@ -91,9 +92,9 @@ nmap <C-Enter> o<Esc>k
 inoremap <F8> <Esc>:set fileformat=unix<CR>
 inoremap <F7> <Esc>:ALEFix<CR>
 inoremap <F6> <Esc>:w<CR>
-nnoremap <F8> :set fnleformat=unnx<CR>
-nnoremap <F7> :ALEFnx<CR>
-nnoremap <F6> :w<CR>
+nnoremap <F8> <Esc>:set fileformat=unix<CR>
+nnoremap <F7> <Esc>:ALEFix<CR>
+nnoremap <F6> <Esc>:w<CR>
 
 " Closing Characters
 inoremap (<CR> (<CR>)<Esc>ko
@@ -112,12 +113,33 @@ nnoremap gg ggzz
 
 " GVIM
 au GUIEnter * simalt ~x
+
 set guifont=Consolas:h12:cANSI:qDRAFT
+
+"run the command immediately when starting vim
+autocmd VimEnter * call libcallnr("gvimfullscreen.dll", "ToggleFullScreen",0)
+
+" activate/deactivate full screen with function key <F11>  
+inoremap <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
+nnoremap <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
+
+
+
+" ConEmu
+if !has("gui_running")
+  set term=xterm
+  set t_Co=256
+  let &t_AB="\e[48;5;%dm"
+  let &t_AF="\e[38;5;%dm"
+  colorscheme base16-seti
+endif
+inoremap <Char-0x07F> <BS>
+nnoremap <Char-0x07F> <BS>
 
 
 
 " EMMET
-autocmd FileType html,css,javascript,javascript.jsx,jsx,cshtml,ts,tsx,typescript EmmetInstall
+autocmd FileType html, css, javascript, javascript.jsx, jsx, cshtml, ts, tsx, typescript EmmetInstall
 let g:user_emmet_install_global=0
 let g:user_emmet_leader_key = '<C-,>'
 let g:user_emmet_settings = {

@@ -4,4 +4,5 @@
 # But these files
 !.gitignore
 !.vimrc
+!.gvimrc
 
