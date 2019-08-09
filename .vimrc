@@ -7,11 +7,11 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx', { 'for': ['jsx', 'javascript.jsx'] }
 
 " React Snippets
-Plug 'epilande/vim-react-snippets'
-Plug 'epilande/vim-es2015-snippets'
+"Plug 'epilande/vim-react-snippets'
+"Plug 'epilande/vim-es2015-snippets'
 
 " Ultisnips
-Plug 'SirVer/ultisnips'
+"Plug 'SirVer/ultisnips'
 
 " Surrounder for Simple Stuff
 Plug 'tpope/vim-surround'
@@ -40,7 +40,7 @@ call plug#end()  " Plug END
 
 filetype plugin on
 set pythonthreedll=python37.dll
-set pythonthreehome=C:\Users\pedro\AppData\Local\Programs\Python\Python37-32
+"set pythonthreehome=C:\Users\pedro\AppData\Local\Programs\Python\Python37-32
 
 
 
@@ -85,8 +85,7 @@ nnoremap <Space> i<Space><Esc>
 " Insert Line in Normal_Mode
 nnoremap <S-Enter> O<Esc>j
 nnoremap <C-Enter> o<Esc>k
-nmap <S-Enter> O<Esc>j
-nmap <C-Enter> o<Esc>k
+nnoremap <Enter> i<CR><Esc>
 
 " Utils
 inoremap <F8> <Esc>:set fileformat=unix<CR>
@@ -125,32 +124,6 @@ nnoremap <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)
 
 
 
-" ConEmu
-if !has("gui_running")
-  set term=xterm
-  set t_Co=256
-  let &t_AB="\e[48;5;%dm"
-  let &t_AF="\e[38;5;%dm"
-  colorscheme base16-seti
-endif
-inoremap <Char-0x07F> <BS>
-nnoremap <Char-0x07F> <BS>
-
-
-
-" EMMET
-autocmd FileType html, css, javascript, javascript.jsx, jsx, cshtml, ts, tsx, typescript EmmetInstall
-let g:user_emmet_install_global=0
-let g:user_emmet_leader_key = '<C-,>'
-let g:user_emmet_settings = {
-\  'javascript' : {
-\      'extends' : 'jsx'
-\  }
-\}
-let g:jsx_ext_required = 0
-
-
-
 " Ale 
 let g:ale_fixers = { 
 \  'javascript': ['prettier', 'eslint'],
@@ -163,6 +136,11 @@ let g:ale_fixers = {
 let g:ale_linters = { 'javascript': ['eslint'] }
 let g:ale_linters_explicit = 1
 let g:ale_fix_on_save = 1
+
+
+
+" Emmet
+let g:user_emmet_leader_key = '<C-,>'
 
 
 
