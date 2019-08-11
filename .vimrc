@@ -6,13 +6,6 @@ Plug 'pangloss/vim-javascript'
 " JSX Support
 Plug 'mxw/vim-jsx', { 'for': ['jsx', 'javascript.jsx'] }
 
-" React Snippets
-"Plug 'epilande/vim-react-snippets'
-"Plug 'epilande/vim-es2015-snippets'
-
-" Ultisnips
-"Plug 'SirVer/ultisnips'
-
 " Surrounder for Simple Stuff
 Plug 'tpope/vim-surround'
 
@@ -20,7 +13,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 
 " Emmet - HTML JSX snippets
-Plug 'mattn/emmet-vim', { 'for': ['javascript.jsx', 'jsx', 'javascript', 'typescript', 'ts', 'tsx', 'html', 'css'] }
+Plug 'mattn/emmet-vim'
 
 " NERDTree - File Tree Manager and Viewer
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -110,6 +103,13 @@ nnoremap gg ggzz
 
 
 
+" Emmet-vim
+inoremap <C-,> <C-,>
+let g:user_emmet_leader_key=','
+autocmd FileType * EmmetInstall
+
+
+
 " GVIM
 au GUIEnter * simalt ~x
 
@@ -136,11 +136,6 @@ let g:ale_fixers = {
 let g:ale_linters = { 'javascript': ['eslint'] }
 let g:ale_linters_explicit = 1
 let g:ale_fix_on_save = 1
-
-
-
-" Emmet
-let g:user_emmet_leader_key = '<C-,>'
 
 
 
