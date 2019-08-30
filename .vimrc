@@ -70,8 +70,8 @@ set wrap
 set linebreak
 
 set autoindent
-set shiftwidth=2
 set expandtab
+set shiftwidth=2
 set softtabstop=2
 
 set backspace=2
@@ -162,6 +162,8 @@ nnoremap <F4> :OmniSharpFixUsings<CR>
 inoremap <F4> <Esc>:OmniSharpFixUsings<CR>
 nnoremap <F3> :OmniSharpRestartServer<CR>
 inoremap <F3> <Esc>:OmniSharpRestartServer<CR>
+nnoremap <F2> :OmniSharpCodeFormat<CR>
+inoremap <F2> <Esc>:OmniSharpCodeFormat<CR>
 nnoremap <C-Space> :OmniSharpGetCodeActions<CR>
 inoremap <C-Space> <Esc>:OmniSharpGetCodeActions<CR>
 
