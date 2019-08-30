@@ -6,6 +6,25 @@ Plug 'pangloss/vim-javascript'
 " JSX Support
 Plug 'mxw/vim-jsx', { 'for': ['jsx', 'javascript.jsx'] }
 
+" React Snippets (Python 3 and ultisnips Required)
+Plug 'epilande/vim-react-snippets'
+
+" Ultisnips (Required for React Snippets)
+Plug 'sirver/ultisnips'
+
+" VueJS Support
+Plug 'posva/vim-vue'
+
+" TypeScript Syntax Highlight
+Plug 'leafgarland/typescript-vim'
+Plug 'ianks/vim-tsx'
+
+" TypeScript Server & Completion
+Plug 'Quramy/tsuquyomi'
+
+" C# Support - Omnisharp
+Plug 'OmniSharp/omnisharp-vim'
+
 " Surrounder for Simple Stuff
 Plug 'tpope/vim-surround'
 
@@ -21,6 +40,9 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " Linter & Formatter
 Plug 'w0rp/ale'
 
+" EditorConfig
+Plug 'editorconfig/editorconfig-vim'
+
 " CtrlP - Quick open files
 Plug 'ctrlpvim/ctrlp.vim'
 
@@ -32,8 +54,11 @@ call plug#end()  " Plug END
 
 
 filetype plugin on
+filetype indent plugin on
 set pythonthreedll=python37.dll
-"set pythonthreehome=C:\Users\pedro\AppData\Local\Programs\Python\Python37-32
+if has('python3')
+  silent! python3 1
+endif
 
 
 
@@ -59,6 +84,8 @@ set colorcolumn=81,121
 
 colorscheme base16-harmonic-dark
 
+set nocompatible
+
 
 
 " MY MAPS
@@ -67,10 +94,7 @@ colorscheme base16-harmonic-dark
 inoremap <C-L> <Del>
 
 " Better Backspace
-inoremap <BS> <C-H>
-
-" Insert Space After in Insert_Mode
-inoremap <C-Space> <Space><Esc>i
+inoremap <C-BS> <C-w>
 
 " Insert Space Before in Normal_Mode
 nnoremap <Space> i<Space><Esc>
@@ -82,10 +106,10 @@ nnoremap <Enter> i<CR><Esc>
 
 " Utils
 inoremap <F8> <Esc>:set fileformat=unix<CR>
-inoremap <F7> <Esc>:ALEFix<CR>
+inoremap <F7> <Esc>:ALEFix prettier<CR>
 inoremap <F6> <Esc>:w<CR>
 nnoremap <F8> <Esc>:set fileformat=unix<CR>
-nnoremap <F7> <Esc>:ALEFix<CR>
+nnoremap <F7> <Esc>:ALEFix prettier<CR>
 nnoremap <F6> <Esc>:w<CR>
 
 " Closing Characters
@@ -94,17 +118,12 @@ inoremap [<CR> [<CR>]<Esc>ko
 inoremap {<CR> {<CR>}<Esc>ko
 inoremap ({<CR> ({<CR>})<Esc>ko
 
-" Add , and ; Normal_Mode
-nnoremap ; a;<Esc>
-nnoremap , a,<Esc>
-
 " Move a Center
 nnoremap gg ggzz
 
 
 
 " Emmet-vim
-inoremap <C-,> <C-,>
 let g:user_emmet_leader_key=','
 autocmd FileType * EmmetInstall
 
@@ -124,7 +143,32 @@ nnoremap <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)
 
 
 
+" Ultisnips
+let g:UltiSnipsUsePythonVersion=3
+
+
+
+" TypeScript VIM
+let g:typescript_indent_disable = 1
+
+
+
+" C# / OmniSharp
+let g:OmniSharp_server_stdio = 1
+let g:OmniSharp_selector_ui = 'ctrlp'
+let g:OmniSharp_want_snippet = 1
+set completeopt=longest,menuone,preview
+nnoremap <F4> :OmniSharpFixUsings<CR>
+inoremap <F4> <Esc>:OmniSharpFixUsings<CR>
+nnoremap <F3> :OmniSharpRestartServer<CR>
+inoremap <F3> <Esc>:OmniSharpRestartServer<CR>
+nnoremap <C-Space> :OmniSharpGetCodeActions<CR>
+inoremap <C-Space> <Esc>:OmniSharpGetCodeActions<CR>
+
+
+
 " Ale 
+let g:ale_completion_enabled = 1
 let g:ale_fixers = { 
 \  'javascript': ['prettier', 'eslint'],
 \  'javascript.jsx': ['prettier', 'eslint'],
@@ -132,8 +176,15 @@ let g:ale_fixers = {
 \  'jsx': ['prettier', 'eslint'],
 \  'typescript': ['prettier', 'eslint'],
 \  'css': ['prettier'],
+\  'vue': ['prettier', 'eslint'],
+\  'cs': ['prettier'],
 \}
-let g:ale_linters = { 'javascript': ['eslint'] }
+let g:ale_linters = { 
+\  'javascript': ['eslint'],
+\  'typescript': ['tsserver', 'eslint'],
+\  'vue': ['eslint'],
+\  'cs': ['OmniSharp']
+\}
 let g:ale_linters_explicit = 1
 let g:ale_fix_on_save = 1
 
@@ -159,12 +210,12 @@ autocmd FileType java nnoremap <buffer> <F9> :exec '!javac' shellescape(expand('
 " CtrlP
 let g:ctrlp_map = '<C-P>'
 let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_custom_ignore = 'node_modules\|git\'
+let g:ctrlp_custom_ignore = 'node_modules\|git\|.cache\|**.swp'
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_root_markers = ['pom.xml', 'yarn.lock', 'package.json']
 
 
 
-" React-Snippets
-let g:UltiSnipsExpandTrigger="<C-;>"
+" VueJS
+let g:vue_pre_processors = []
 
