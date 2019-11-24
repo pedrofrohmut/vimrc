@@ -7,10 +7,10 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx', { 'for': ['jsx', 'javascript.jsx'] }
 
 " React Snippets (Python 3 and ultisnips Required)
-Plug 'epilande/vim-react-snippets'
+"Plug 'epilande/vim-react-snippets'
 
 " Ultisnips (Required for React Snippets)
-Plug 'sirver/ultisnips'
+"Plug 'sirver/ultisnips'
 
 " VueJS Support
 Plug 'posva/vim-vue'
@@ -18,6 +18,9 @@ Plug 'posva/vim-vue'
 " TypeScript Syntax Highlight
 Plug 'leafgarland/typescript-vim'
 Plug 'ianks/vim-tsx'
+
+" TypeScript Indentation
+Plug 'jason0x43/vim-js-indent'
 
 " TypeScript Server & Completion
 Plug 'Quramy/tsuquyomi'
@@ -46,6 +49,10 @@ Plug 'editorconfig/editorconfig-vim'
 " CtrlP - Quick open files
 Plug 'ctrlpvim/ctrlp.vim'
 
+" Vim Airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 " Lots of good Colorschemes for Vim
 Plug 'chriskempson/base16-vim'
 
@@ -68,6 +75,8 @@ set relativenumber
 
 set wrap
 set linebreak
+
+set incsearch
 
 set autoindent
 set expandtab
@@ -132,7 +141,8 @@ autocmd FileType * EmmetInstall
 " GVIM
 au GUIEnter * simalt ~x
 
-set guifont=Consolas:h12:cANSI:qDRAFT
+"set guifont=Consolas:h12:cANSI:qDRAFT
+set guifont=Noto_Mono_for_Powerline:h11:cANSI:qANTIALIASED
 
 "run the command immediately when starting vim
 autocmd VimEnter * call libcallnr("gvimfullscreen.dll", "ToggleFullScreen",0)
@@ -145,11 +155,12 @@ nnoremap <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)
 
 " Ultisnips
 let g:UltiSnipsUsePythonVersion=3
+let g:UltiSnipsExpandTrigger='<tab>'
 
 
 
 " TypeScript VIM
-let g:typescript_indent_disable = 1
+let g:typescript_indent_disable = 0
 
 
 
@@ -170,7 +181,7 @@ inoremap <C-Space> <Esc>:OmniSharpGetCodeActions<CR>
 
 
 " Ale 
-let g:ale_completion_enabled = 1
+let g:ale_completion_enabled = 0
 let g:ale_fixers = { 
 \  'javascript': ['prettier', 'eslint'],
 \  'javascript.jsx': ['prettier', 'eslint'],
@@ -192,6 +203,12 @@ let g:ale_fix_on_save = 1
 
 
 
+" Tsuquyomi
+"autocmd FileType typescript setlocal completeopt-=menu
+"let g:tsuquyomi_completion_detail = 0
+
+
+
 " NERDTree  
 autocmd StdinReadPre * let s:std_in=1 
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
@@ -201,6 +218,11 @@ nnoremap <C-B> :NERDTreeToggle<CR>
 
 " NERDCommenter
 let g:NERDSpaceDelims = 1
+
+
+
+" VIM Airline
+let g:airline_powerline_fonts = 1
 
 
 
