@@ -58,16 +58,12 @@ Plug 'chriskempson/base16-vim'
 
 call plug#end()  " Plug END
 
-
-
 filetype plugin on
 filetype indent plugin on
 set pythonthreedll=python37.dll
 if has('python3')
   silent! python3 1
 endif
-
-
 
 " VIM
 set number
@@ -89,11 +85,14 @@ set mouse=a
 set encoding=utf-8
 set fileformat=unix
 
-set colorcolumn=81,121
+set colorcolumn=81,121 " Color colums
 
 colorscheme base16-harmonic-dark
+"colorscheme base16-seti
 
 set nocompatible
+
+set autoread " auto reload files on Vim when they change on disk
 
 
 
@@ -142,14 +141,19 @@ autocmd FileType * EmmetInstall
 au GUIEnter * simalt ~x
 
 "set guifont=Consolas:h12:cANSI:qDRAFT
-set guifont=Noto_Mono_for_Powerline:h11:cANSI:qANTIALIASED
+"set guifont=Noto_Mono_for_Powerline:h11:cANSI:qANTIALIASED
+"set guifont=DejaVu_Sans_Mono_for_Powerline:h11:cANSI:qANTIALIASED
+"set guifont=Droid_Sans_Mono_Slashed_for_Pow:h11:cANSI:qANTIALIASED
+set guifont=Droid_Sans_Mono_Slashed_for_Pow:h11
+
+
 
 "run the command immediately when starting vim
 autocmd VimEnter * call libcallnr("gvimfullscreen.dll", "ToggleFullScreen",0)
 
 " activate/deactivate full screen with function key <F11>  
 inoremap <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
-nnoremap <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
+
 
 
 
@@ -161,7 +165,8 @@ let g:UltiSnipsExpandTrigger='<tab>'
 
 " TypeScript VIM
 let g:typescript_indent_disable = 0
-
+autocmd FileType typescript set filetype=typescript " For Synteax HighLight
+autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
 
 
 " C# / OmniSharp
@@ -204,8 +209,8 @@ let g:ale_fix_on_save = 1
 
 
 " Tsuquyomi
-"autocmd FileType typescript setlocal completeopt-=menu
-"let g:tsuquyomi_completion_detail = 0
+"autocmd FileType typescript setlocal completeopt-=menu " On/Off popup menu
+"let g:tsuquyomi_completion_detail = 0 " Method signature popup
 
 
 
