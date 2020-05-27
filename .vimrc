@@ -165,8 +165,13 @@ let g:UltiSnipsExpandTrigger='<tab>'
 
 " TypeScript VIM
 let g:typescript_indent_disable = 0
-autocmd FileType typescript set filetype=typescript " For Synteax HighLight
+autocmd FileType typescript set filetype=typescript " For Syntax HighLight
 autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
+
+
+
+" JavaScript VIM
+autocmd FileType json set filetype=javascript " For Syntax HighLight on comments
 
 
 " C# / OmniSharp
