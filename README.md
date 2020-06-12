@@ -42,3 +42,11 @@ set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
 
 3. Make the .gvimrc file as step 2 explains
+
+4. Install Plugins with :PlugInstall
+
+5. Install Powerline Fonts with PowerShell: 
+https://medium.com/@slmeng/how-to-install-powerline-fonts-in-windows-b2eedecace58
+https://github.com/powerline/fonts
+Execute the "fonts/install.ps1" file in "Admin" PowerShell with Set-ExecutionPolicy "Bypass"
+
