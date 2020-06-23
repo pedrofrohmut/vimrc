@@ -87,8 +87,8 @@ set fileformat=unix
 
 set colorcolumn=81,121 " Color colums
 
-colorscheme base16-harmonic-dark
-"colorscheme base16-seti
+"colorscheme base16-harmonic-dark
+colorscheme base16-seti
 
 set nocompatible
 
@@ -214,8 +214,8 @@ let g:ale_fix_on_save = 1
 
 
 " Tsuquyomi
-"autocmd FileType typescript setlocal completeopt-=menu " On/Off popup menu
-"let g:tsuquyomi_completion_detail = 0 " Method signature popup
+autocmd FileType typescript setlocal completeopt-=menu " On/Off popup menu
+let g:tsuquyomi_completion_detail = 0 " Method signature popup
 
 
 
