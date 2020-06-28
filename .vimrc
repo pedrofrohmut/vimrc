@@ -87,6 +87,7 @@ set fileformat=unix
 
 set colorcolumn=81,121 " Color colums
 
+set t_Co=256
 "colorscheme base16-harmonic-dark
 colorscheme base16-seti
 
@@ -143,8 +144,8 @@ au GUIEnter * simalt ~x
 "set guifont=Consolas:h12:cANSI:qDRAFT
 "set guifont=Noto_Mono_for_Powerline:h11:cANSI:qANTIALIASED
 "set guifont=DejaVu_Sans_Mono_for_Powerline:h11:cANSI:qANTIALIASED
-"set guifont=Droid_Sans_Mono_Slashed_for_Pow:h11:cANSI:qANTIALIASED
-set guifont=Droid_Sans_Mono_Slashed_for_Pow:h11
+set guifont=Droid_Sans_Mono_Slashed_for_Pow:h11:cANSI:qANTIALIASED
+"set guifont=Droid_Sans_Mono_Slashed_for_Pow:h11
 
 
 
@@ -244,7 +245,7 @@ autocmd FileType java nnoremap <buffer> <F9> :exec '!javac' shellescape(expand('
 " CtrlP
 let g:ctrlp_map = '<C-P>'
 let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_custom_ignore = 'node_modules\|git\|.cache\|**.swp'
+let g:ctrlp_custom_ignore = 'node_modules\|git\|.cache\|.next\|**.swp'
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_root_markers = ['pom.xml', 'yarn.lock', 'package.json']
 
